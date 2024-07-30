@@ -6,11 +6,12 @@ let extensions = ["com", "net", "us", "io"];
 function generateDomains(pronoun, adj, noun, extensions) {
   let domains = [];
 
-  for (let p of pronoun) {
-    for (let a of adj) {
-      for (let n of noun) {
-        for (let ext of extensions) {
-          domains.push(`${p}${a}${n}.${ext}`);
+  pronouns.forEach(pronoun => {
+    adjectives.forEach(adjective => {
+      nouns.forEach(noun => {
+        extensions.forEach(extension => {
+          let domain = `${pronoun}${adjective}${noun}.${extension}`;
+          domains.push(domain);
 
           if (n.endsWith(ext)) {
             let hackedDomain = `${p}${a}${n.slice(0, -ext.length)}.${ext}`;
